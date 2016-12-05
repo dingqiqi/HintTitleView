@@ -114,7 +114,7 @@ public class SuspensionDecoration extends RecyclerView.ItemDecoration {
                     //画标题矩形
                     c.drawRect(left, top, right, bottom, mPaintRect);
                     //画文字
-                    String text = mList.get(pos).getTitle();
+                    String text = mList.get(pos).getTag();
                     mPaint.getTextBounds(text, 0, text.length(), mTextBound);
                     c.drawText(text, (right - left - mTextBound.width()) / 2, bottom - (mTitleHeight - mTextBound.height()) / 2, mPaint);
                 }
@@ -132,6 +132,7 @@ public class SuspensionDecoration extends RecyclerView.ItemDecoration {
         if (pos == -1) {
             return;
         }
+
         //获取当前View
         View child = parent.findViewHolderForAdapterPosition(pos).itemView;
 
@@ -152,7 +153,7 @@ public class SuspensionDecoration extends RecyclerView.ItemDecoration {
         //画标题区域
         c.drawRect(parent.getPaddingLeft(), parent.getPaddingTop(), parent.getWidth() - parent.getPaddingRight(), parent.getPaddingTop() + mTitleHeight, mPaintRect);
         //画文字
-        String text = mList.get(pos).getTitle();
+        String text = mList.get(pos).getTag();
         mPaint.getTextBounds(text, 0, text.length(), mTextBound);
         c.drawText(text, (parent.getWidth() - parent.getPaddingRight() - parent.getPaddingLeft() - mTextBound.width()) / 2, parent.getPaddingTop() + mTitleHeight - (mTitleHeight - mTextBound.height()) / 2, mPaint);
         //还原布局
