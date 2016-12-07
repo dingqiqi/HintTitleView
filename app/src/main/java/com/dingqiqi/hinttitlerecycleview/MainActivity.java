@@ -99,6 +99,8 @@ public class MainActivity extends AppCompatActivity {
                     mTvHint.setVisibility(View.VISIBLE);
                     mTvHint.setText(mList.get(pos).getTag());
 
+                    mIndexView.setIndexStr(mList.get(pos).getTag());
+
                     mHandler.postDelayed(mRunnable, 1000);
                 }
                 mCurIndex = pos;
